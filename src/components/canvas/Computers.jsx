@@ -4,6 +4,29 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
+function isWebGLAvailable() {
+  try {
+    console.log("Checking for WebGL support...");
+    const canvas = document.createElement("canvas");
+    if (!window.WebGLRenderingContext) {
+      console.log("WebGLRenderingContext not found on window.");
+      return false;
+    }
+    const context =
+      canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+    if (context) {
+      console.log("WebGL context acquired successfully.");
+      return true;
+    } else {
+      console.log("Failed to acquire WebGL context.");
+      return false;
+    }
+  } catch (e) {
+    console.log("Error while checking WebGL support:", e);
+    return false;
+  }
+}
+
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
 
@@ -31,8 +54,11 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [webglSupported, setWebglSupported] = useState(true);
 
   useEffect(() => {
+    // Check for WebGL support
+    setWebglSupported(isWebGLAvailable());
     // Add a listener for changes to the screen size
     const mediaQuery = window.matchMedia("(max-width: 500px)");
 
@@ -52,6 +78,17 @@ const ComputersCanvas = () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  if (!webglSupported) {
+    // Show fallback image if WebGL is not supported
+    return (
+      <img
+        src="/fallback-image.jpg"
+        alt="3D preview not supported"
+        style={{ width: "100%", height: "auto" }}
+      />
+    );
+  }
 
   return (
     <Canvas

@@ -15,14 +15,13 @@ import {
   git,
   figma,
   docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
   carrent,
   jobit,
   tripguide,
   threejs,
+  brototype,
+  aandd,
+  adox,
 } from "../assets";
 
 export const navLinks = [
@@ -46,7 +45,7 @@ const services = [
     icon: web,
   },
   {
-    title: "React Native Developer",
+    title: "Mobile Developer",
     icon: mobile,
   },
   {
@@ -54,7 +53,11 @@ const services = [
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "AI Developer",
+    icon: creator,
+  },
+  {
+    title: "Desktop Developer",
     icon: creator,
   },
 ];
@@ -116,57 +119,47 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Fullstack Developer",
+    title: "Intern Fullstack Developer",
     company_name: "Brototype",
-    // icon: starbucks,
     iconBg: "#383E56",
     date: "2021 - 2022",
+    icon: brototype,
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Built and deployed a full-featured eCommerce platform using the MERN stack, including product management, user authentication, and order processing.",
+      "Developed a real-time chat application with the MERN stack, integrating WebSockets for seamless communication.",
+      "Collaborated with cross-functional teams including designers, product managers, and other developers to deliver high-quality features.",
+      "Implemented responsive design principles and ensured cross-browser compatibility for consistent user experiences.",
+      "Participated in code reviews and contributed constructive feedback to improve code quality and maintain best practices.",
     ],
   },
   {
-    title: "Fullstack Developer",
-    company_name: "A and D solution india",
-    // icon: tesla,
+    title: "Software Engineer",
+    company_name: "A and D Solution India",
     iconBg: "#E6DEDD",
     date: "2022 - 2023",
+    icon: aandd,
     points: [
-      "Developing and maintaining web applications using Angular and .Net MVC and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Designed and developed web applications using Angular and .NET MVC, ensuring scalability and performance.",
+      "Built and integrated backend APIs to support dynamic, data-driven features across multiple applications.",
+      "Collaborated with cross-functional teams including designers, product managers, and developers to deliver high-quality solutions on time.",
+      "Implemented responsive UI designs and ensured cross-browser and cross-device compatibility for seamless user experiences.",
+      "Conducted code reviews, optimized application performance, and contributed to maintaining best development practices.",
     ],
   },
   {
-    title: "Fullstack Devloper",
+    title: "Software Engineer",
     company_name: "Adox",
-    // icon: shopify,
     iconBg: "#383E56",
-    date: "2023 - current",
+    icon: adox,
+    date: "2023 - Current",
     points: [
-      "Developing and maintaining web applications using React.js , Next.js, Python, Drf , pandas, and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Designed and developed web applications using React.js, Next.js, Python, Django REST Framework, Pandas, PHP, and Laravel, ensuring performance and scalability.",
+      "Built and maintained mobile applications using React Native for seamless cross-platform experiences.",
+      "Implemented monitoring services and Windows Services to automate workflows and improve system reliability, integrating Firebase for real-time data and notifications.",
+      "Collaborated with cross-functional teams including designers, product managers, and developers to deliver high-quality solutions on schedule.",
+      "Implemented responsive UI designs, ensured cross-browser compatibility, and participated in code reviews to maintain best development practices.",
     ],
   },
-  // {
-  //   title: "Full stack Developer",
-  //   company_name: "Meta",
-  //   icon: meta,
-  //   iconBg: "#E6DEDD",
-  //   date: "Jan 2023 - Present",
-  //   points: [
-  //     "Developing and maintaining web applications using React.js and other related technologies.",
-  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //     "Implementing responsive design and ensuring cross-browser compatibility.",
-  //     "Participating in code reviews and providing constructive feedback to other developers.",
-  //   ],
-  // },
 ];
 
 const testimonials = [
