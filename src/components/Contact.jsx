@@ -27,42 +27,59 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Muhammed Sabir",
-          from_email: form.email,
-          to_email: "mohammedsabir5123@gmail.com",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+  // 1️⃣ Send message to yourself
+  emailjs
+    .send(
+      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        to_name: "Muhammed Sabir",
+        from_email: form.email,
+        to_email: "mohammedsabir5123@gmail.com",
+        message: form.message,
+      },
+      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+    )
+    .then(
+      () => {
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
+        console.log(form.email, form.name);
+        // 2️⃣ Send auto-reply to user
+        emailjs.send(
+          import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_APP_EMAILJS_AUTOREPLY_TEMPLATE_ID, // create a separate template in dashboard
+          {
+            from_name: "Sabir's Personal AI Assistant",
+            to_name: form.name,
+            to_email: form.email,
+          },
+          import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        );
 
-          alert("Ahh, something went wrong. Please try again.");
-        }
-      );
-  };
+        setLoading(false);
+        alert("Thank you. I will get back to you as soon as possible.");
+
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+      },
+      (error) => {
+        setLoading(false);
+        console.error(error);
+        alert("Ahh, something went wrong. Please try again.");
+      }
+    )
+    .then(() => console.log("Auto-reply sent"))
+    .catch(err => console.error("Auto-reply failed:", err));
+};
+
 
   return (
     <div
